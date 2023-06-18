@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .text {
+            transform: rotate(180deg);
+            position: absolute;
+            left: 20px;
+            top: 20px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <button v-on:click="rotated">Перевернуть</button>
+        <h1 v-show="rotate" class="text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione, delectus.
+        </h1>
+        <h1 v-show="!rotate">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione, delectus.</h1>
+        <ul class="ul">
+            <li>Элемент</li>
+        </ul>
+        <button class="add">Добавить</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
+    <script>
+        const addEl = document.querySelector('.add');
+        const ulEl = document.querySelector('.ul');
+        new Vue({
+            el: '#app',
+
+            data: {
+                rotate: false,
+                add: addEl,
+                ul: ulEl,
+            },
+            methods: {
+                rotated() {
+                    this.rotate = !this.rotate
+                },
+                addEl.addEventListener('load', function (e) {
+                    // body
+                });
+                
+            },
+        })
+        
+
+    </script>
+</body>
+
+</html>
