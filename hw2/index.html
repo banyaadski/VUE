@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <div class="div">
+            <div class="divert" v-for="item in products" :key="item.id">
+                <h1 style="font-size: 50px;">
+                    {{ item.name }}
+                </h1>
+                <p style="font-size: 50px;">
+                    {{ item.price }}
+                </p>
+            </div>
+            <button style="background-color: blue; width: 320px; height: 220px; color: azure; font: 2em sans-serif;" v-on:click="ascendingSort(products)">Сортировать по возрастанию</button>
+            <button style="background-color: blue; width: 320px; height: 220px; color: azure; font: 2em sans-serif;" v-on:click="descendingSort(products)">Сортировать по убыванию</button>
+
+
+        </div>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                products: [
+                    { id: 1, name: 'item1', price: 200 },
+                    { id: 2, name: 'item2', price: 230 },
+                    { id: 3, name: 'item3', price: 100 },
+                    { id: 4, name: 'item4', price: 350 },
+                    { id: 5, name: 'item5', price: 270 },
+                ]
+            },
+            methods: {
+                ascendingSort(products = []) {  
+                    const sorter = (a, b) => {
+                        return +a.price - +b.price;
+                    }
+                    products.sort(sorter)
+                },
+                descendingSort(products = []) {
+                    const sorter = (a, b) => {
+                        return +b.price - +a.price;
+                    }
+                    products.sort(sorter)
+                },
+                
+            }
+        })
+        // const arr = [
+        //     {
+        //         "h_id": "3",
+        //         "city": "Dallas",
+        //         "state": "TX",
+        //         "zip": "75201",
+        //         "price": "162500"
+        //     },
+        //     {
+        //         "h_id": "4",
+        //         "city": "Bevery Hills",
+        //         "state": "CA",
+        //         "zip": "90210",
+        //         "price": "319250"
+        //     },
+        //     {
+        //         "h_id": "5",
+        //         "city": "New York",
+        //         "state": "NY",
+        //         "zip": "00010",
+        //         "price": "962500"
+        //     }
+        // ];
+        // const eitherSort = (arr = []) => {
+        //     const sorter = (a, b) => {
+        //         return +a.price - +b.price;
+        //     };
+        //     arr.sort(sorter);
+        // };
+        // eitherSort(arr);
+        // console.log(arr);
+    </script>
+</body>
+
+</html>
